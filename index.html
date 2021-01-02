@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DND Example</title>
+    <script type="text/javascript" src="js/dnd.js"></script>
+    <style>
+      body {
+        margin: 0;
+      }
+      .main {
+        width: 500px;
+        margin: 30px auto;
+        text-align: center;
+      }
+      .dnd-container {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border: 1px solid #333333;
+        border-radius: 5px;
+        box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5);
+      }
+      .dnd-item {
+        padding: 10px 20px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <h1>List Drag and Drop</h1>
+      <ul class="dnd-container">
+        <li class="dnd-item" style="background-color: #ffa8a8">RED 1</li>
+        <li class="dnd-item" style="background-color: #faa2c1">PINK 2</li>
+        <li class="dnd-item" style="background-color: #e599f7">GRAPE 3</li>
+        <li class="dnd-item" style="background-color: #b197fc">VIOLET 4</li>
+        <li class="dnd-item" style="background-color: #91a7ff">INDIGO 5</li>
+        <li class="dnd-item" style="background-color: #74c0fc">BLUE 6</li>
+        <li class="dnd-item" style="background-color: #66d9e8">CYAN 7</li>
+        <li class="dnd-item" style="background-color: #63e6be">TEAL 8</li>
+        <li class="dnd-item" style="background-color: #8ce99a">GREEN 9</li>
+        <li class="dnd-item" style="background-color: #c0eb75">LIME 10</li>
+        <li class="dnd-item" style="background-color: #ffe066">YELLOW 11</li>
+        <li class="dnd-item" style="background-color: #ffc078">ORANGE 12</li>
+      </ul>
+    </div>
+    <script>
+      const _DND = new DND();
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const _container = document.querySelector(".dnd-container");
+        const _items = [...document.querySelectorAll(".dnd-item")];
+
+        _DND.setContainer(_container);
+        _items.forEach((_item) => {
+          _DND.setItem(_item);
+        });
+      });
+    </script>
+  </body>
+</html>
